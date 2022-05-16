@@ -3,6 +3,6 @@ A pipeline to report the key information based on the output of Multilevel Genom
 
 The key information includes:
 1. Population structure of typed _Salmonella_ Enteritidis isolates.
-2. Multidrug resistance associated sequence types. 
+2. Isolates belonging to the multidrug resistance associated MGT STs (sequence types). 
 3. Summarization of closely related clusters using different clustering cutoffs from MGT9 to GC10.
 4. Generating Microreact input for visualisation of a cluster of interest (i.e. MGT-GC based dentrogram, metadata table). 
