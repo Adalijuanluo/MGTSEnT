@@ -1,2 +1,2 @@
-# Salmonella_Enteritidis_MGT
-Scripts for interpreting the MGT output of the global S. Enteritidis database https://mgtdb.unsw.edu.au/enteritidis/
+# MGTSENter 
+Scripts for interpreting the Multilevel Genome Typing (MGT) output for the global _Salmonella_ Enteritidis database https://mgtdb.unsw.edu.au/enteritidis/
