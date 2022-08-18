@@ -7,14 +7,16 @@ import scipy.stats as stats
 
 def parseargs():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('-m','--mgtdb',help='.csv file of the whole MGT typing dataset in MGTdb of Salmonella Enteritidis')
     parser.add_argument('-i','--isolatelist',help='.txt file of isolates of interest in MGTdb')
+    parser.add_argument('-f', '--flag', help='.csv flag file included in the Github pakage, e.g. /srv/MGTSEnT/10-01-mgtmdrflag.csv')
     parser.add_argument('-o','--outpath_prefix',help='output path + prefix of the outfile, e.g. /srv/outdir/test_')
+
     args = parser.parse_args()
     return args
 
 # ### Historical input for parseargs
 # python3 A_MGTSEnter.py -i /mnt/e/2018/2019-06-14-Australia_SEN/Australia_isolates.txt -o /mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/2_Austest/Australia_
-
 # isolatelist = '/mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/1_08-28/allisolist.txt'
 # isolatelist = '/mnt/e/2018/2019-06-14-Australia_SEN/Australia_isolates.txt'  ###new_isolates.txt
 # # outpath = '/mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/11_16_all/40K_'
@@ -25,14 +27,16 @@ def parseargs():
 
 def main():
     args=parseargs()
+    metapath = args.mgtdb
     isolatelist = open(args.isolatelist, 'r').read().splitlines()
+    mgt_flags = args.flag
     outpath = args.outpath_prefix
 
     ######## the following files should be included in the github package
-    metapath = '/mnt/e/2018/2019-06-14-Australia_SEN/0_meta/MGTdataset_corre.csv'
-    mgt_flags = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-06-AR/2021-01-40K_output/MDR/10-01-mgtmdrflag.csv'
+    #metapath = '/mnt/e/2018/2019-06-14-Australia_SEN/0_meta/MGTdataset_corre.csv'
+    #mgt_flags = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-06-AR/2021-01-40K_output/MDR/10-01-mgtmdrflag.csv'
     feature = 'MDR_MGT-ST'
-    ARGs = 'True'
+    ARGs = 'False'
     ### The AMR genes based prediction of MDR, AMR_2,1,0. At least two columns are required: Strain, AMR_group
     argpredfile = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-06-AR/2021-01-40K_output/MDR/isolistamrdf.csv'
 
