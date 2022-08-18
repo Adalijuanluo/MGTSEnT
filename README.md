@@ -35,7 +35,9 @@ conda activate MGTSEnT
 ## Usage
 * Output 1
 ````
-python MGTSEnter.py -m path/mgtdb.csv -i path/accession_number_list.txt -o outputpath/prefix_
+python MGTSEnT.py -h
+python MGTSEnT.py -m path/mgtdb.csv -i path/accession_number_list.txt -f path/flag.csv-o outputpath/prefix_
 ````
+* Output 2
 
 
