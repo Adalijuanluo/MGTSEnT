@@ -21,23 +21,24 @@ Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
     * Dentrogram (.txt) for the hierarchical single linkage clusters. 
 
 ## Installation
-1. Download this repo:
-````
-git clone https://github.com/Adalijuanluo/MGTSEnT.git
-````
-2. Update or Install Miniconda and add the bioconda channel:
+1. Update or Install Miniconda and add the bioconda channel:
    - conda update -n base -c defaults conda
    
      or 
    
    - Install miniconda3  -> https://docs.conda.io/en/latest/miniconda.html
    - Add bioconda -> http://www.ddocent.com//bioconda/
-3. Create miniconda3 environment:
+2. Create miniconda3 environment:
 ````
 conda create -n mgtsent
 conda activate mgtsent
 conda install -c conda-forge geopy
 conda install -c conda-forge matplotlib
+````
+3. Download this repository:
+````
+git clone https://github.com/Adalijuanluo/MGTSEnT.git
+cd MGTSEnT
 ````
 ## Usage
 * Output 1
