@@ -12,6 +12,7 @@ Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
 ### Input
 1. The whole MGT typing dataset (.csv) from the MGTdb https://mgtdb.unsw.edu.au/enteritidis/.
 2. Accession number list (.txt) for the newly sequenced strains or strains of interest.
+3. For MGTSEnT_Microreactinput.py, list of closely related clusters (.txt) for microreact visualisation (e.g. GC10_1813). 
 ### Output
 1. CSV file about the population structure (clades & lineages) of the strains, and multidrug resistance associated sequence types (STs). 
 2. CSV file of closely related clusters at different resolution levels (using different pair-wise allele difference cutoffs, 0, 1, 2, 5 and 10), distribution of country and year, classification of 4-week sliding window (if include >= 2 isolates collected within 4 weeks), National/International, Within-State/Inter-State. 
@@ -24,13 +25,18 @@ Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
 ````
 git clone https://github.com/Adalijuanluo/MGTSEnT.git
 ````
-2. Install Miniconda and add the bioconda channel:
-Install miniconda3  -> https://docs.conda.io/en/latest/miniconda.html
-Add bioconda -> http://www.ddocent.com//bioconda/
-3. Create miniconda3 environment (optional):
+2. Update or Install Miniconda and add the bioconda channel:
+   - conda update -n base -c defaults conda
+   
+     or 
+   
+   - Install miniconda3  -> https://docs.conda.io/en/latest/miniconda.html
+   - Add bioconda -> http://www.ddocent.com//bioconda/
+3. Create miniconda3 environment:
 ````
-conda env create MGTSEnT
-conda activate MGTSEnT
+conda create -n mgtsent
+conda activate mgtsent
+conda install -c conda-forge geopy
 ````
 ## Usage
 * Output 1
@@ -45,7 +51,8 @@ python MGTSEnT_GC_summary.py -m path/mgtdb.csv -i path/accession_number_list.txt
 ````
 * Output 3
 ````
-
+python MGTSEnT_Microreactinput.py -h
+python MGTSEnT_Microreactinput.py -c path/list_of_clusters.txt -outputpath/prefix_
 ````
 
 
