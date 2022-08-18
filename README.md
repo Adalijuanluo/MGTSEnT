@@ -21,5 +21,14 @@ Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
 
 ## Installation
 1. Download this repo:
-https://github.com/LanLab/MGT
+git clone https://github.com/Adalijuanluo/MGTSEnT.git
+2. Install Miniconda and add the bioconda channel:
+Install miniconda3  -> https://docs.conda.io/en/latest/miniconda.html
+Add bioconda -> http://www.ddocent.com//bioconda/
+3. Create miniconda3 environment (optional):
+conda env create MGTSEnT
+conda activate MGTSEnT
+## Run
+
+
 
