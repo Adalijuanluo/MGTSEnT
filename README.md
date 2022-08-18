@@ -1,5 +1,5 @@
 # MGTSEnT
-Custom scripts to report the key information based on the output of Multilevel Genome Typing (MGT)  for global _Salmonella_ Enteritidis https://mgtdb.unsw.edu.au/enteritidis/
+Custom pipeline to report the key information based on the output of Multilevel Genome Typing (MGT)  for global _Salmonella_ Enteritidis https://mgtdb.unsw.edu.au/enteritidis/
 
 The key information includes:
 1. Population structure of typed _Salmonella_ Enteritidis isolates.
@@ -36,8 +36,16 @@ conda activate MGTSEnT
 * Output 1
 ````
 python MGTSEnT.py -h
-python MGTSEnT.py -m path/mgtdb.csv -i path/accession_number_list.txt -f path/flag.csv-o outputpath/prefix_
+python MGTSEnT.py -m path/mgtdb.csv -i path/accession_number_list.txt -f flag.csv -o outputpath/prefix_
 ````
 * Output 2
+````
+python MGTSEnT_GC_summary.py -h
+python MGTSEnT_GC_summary.py -m path/mgtdb.csv -i path/accession_number_list.txt -f flag.csv -o outputpath/prefix_
+````
+* Output 3
+````
+
+````
 
 
