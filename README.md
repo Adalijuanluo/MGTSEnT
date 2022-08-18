@@ -37,6 +37,7 @@ git clone https://github.com/Adalijuanluo/MGTSEnT.git
 conda create -n mgtsent
 conda activate mgtsent
 conda install -c conda-forge geopy
+conda install -c conda-forge matplotlib
 ````
 ## Usage
 * Output 1
