@@ -16,14 +16,17 @@ from datetime import date
 
 def parseargs():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('-m', '--mgtdb',
+                        help='.csv file of the whole MGT typing dataset in MGTdb of Salmonella Enteritidis')
     parser.add_argument('-i','--isolatelist',help='.txt file of isolates of interest in MGTdb')
+    parser.add_argument('-f', '--flag', help='.csv flag file included in the Github pakage, e.g. /srv/MGTSEnT/10-01-mgtmdrflag.csv')
     parser.add_argument('-o','--outpath_prefix',help='output path + prefix of the outfile, e.g. /srv/outdir/test_')
     args = parser.parse_args()
     return args
 
 
 # ### Historical input for parseargs
-# python3 A_GC_summary.py -i /mnt/e/2018/2019-06-14-Australia_SEN/Australia_isolates.txt -o /mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/2_Austest/Australia_
+# python MGTSEnT_GC_summary.py -i /mnt/e/2018/2019-06-14-Australia_SEN/Australia_isolates.txt -o /mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/2_Austest/Australia_
 
 # isolatelist = '/mnt/e/2018/2019-06-14-Australia_SEN/new_isolates.txt'
 # outpath = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-17-transmission/4_week_ODC5/6_ODC0_10'
@@ -33,15 +36,21 @@ def parseargs():
 
 def main():
     args = parseargs()
-    mgtlevelist = ['MGT9','MGT9_CC','ODC2','ODC5','ODC10']  # ['MGT2','MGT3','MGT4','MGT5','MGT6','MGT7','MGT8','MGT9'] ### ['MGT1'] #'ODC2', 'ODC5',
+    metapath = args.mgtdb
+    isolatepath = args.isolatelist
+    print(isolatepath)
+    isolatelist = open(isolatepath, 'r').read().splitlines()
+    mgt_flags = args.flag
+    outpath = args.outpath_prefix
+    ### inputlist
+    # metapath = '/mnt/e/2018/2019-06-14-Australia_SEN/0_meta/MGTdataset_corre.csv'
+    # metapath = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-17-transmission/4_week_ODC5/6_ODC0_10/Australia_MGTSEN.csv'
+    # mgt_flags = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-03-historical_flag/03-04-info_dic_flag.csv'
+    # typelistpath = 'pathofodc_list.txt'  ### if offer the type list in advance
+
+    mgtlevelist = ['MGT9','ODC1','ODC2','ODC5','ODC10']  # ['MGT2','MGT3','MGT4','MGT5','MGT6','MGT7','MGT8','MGT9'] ### ['MGT1'] #'ODC2', 'ODC5',
     for mgt_level in mgtlevelist:
-        outpath = args.outpath_prefix
-        isolatelist = args.isolatelist
-        ### inputlist
-        metapath = '/mnt/e/2018/2019-06-14-Australia_SEN/0_meta/MGTdataset_corre.csv'
-        # metapath = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-17-transmission/4_week_ODC5/6_ODC0_10/Australia_MGTSEN.csv'
-        mgt_flags = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-03-historical_flag/03-04-info_dic_flag.csv'
-        # typelistpath = 'pathofodc_list.txt'  ### if offer the type list in advance
+        print("*********" + mgt_level + "********")
         number_iso_threshold = 1
         # mgt_level = 'MGT2'
         datethresh = 28
@@ -84,7 +93,6 @@ def main():
         isolate_df.index.name = 'Strain'
 
         if isolatelist:
-            isolatelist = open(isolatelist, 'r').read().splitlines()
             isolate_df['isolate_of_interest'] = np.where(isolate_df.index.isin(isolatelist), 'True', 'False')
             conditions = [(isolate_df['no_isolates'] < 2),
                           (isolate_df['no_isolates'] >= 2) & (isolate_df['no_isolates'] < 50),
@@ -108,7 +116,6 @@ def main():
 
 def typeofinterest(metadf, odc, isolatelist,number_iso_threshold):
     # metadf = pd.read_csv(metapath, low_memory=False)
-    isolatelist = open(isolatelist,'r').read().splitlines()
     isodic = {a :'True' for a in isolatelist}
     metadf['new_isolate'] = metadf['Strain'].map(isodic)
     metadf = metadf[metadf['new_isolate']=='True']
