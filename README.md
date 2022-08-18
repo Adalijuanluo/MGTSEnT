@@ -3,9 +3,10 @@ Custom pipeline to report the key information based on the output of Multilevel 
 
 The key information includes:
 1. Population structure of typed _Salmonella_ Enteritidis isolates.
-2. Isolates belonging to the multidrug resistance associated MGT STs (Sequence Types). 
+2. Isolates that belong to the multidrug resistance associated MGT STs (Sequence Types). 
 3. Summarisation of closely related clusters based on the highest resolution typing level MGT9 GC (Genomic Cluster).
 4. Generating Microreact input for visualisation of a cluster of interest (i.e. MGT-GC based dendrogram, metadata table). 
+
 ## Author
 Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
 ## Input and Output
@@ -37,8 +38,7 @@ Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
 ````
 conda create -n mgtsent
 conda activate mgtsent
-conda install -c conda-forge geopy
-conda install -c conda-forge matplotlib
+pip install geopy
 ````
 3. Download this repository:
 ````
