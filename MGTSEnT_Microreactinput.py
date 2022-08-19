@@ -20,13 +20,15 @@ import argparse
 
 def parseargs():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('-t','--GCtype',help='.txt file of GC types, e.g. GC10_1813')
+    parser.add_argument('-m', '--mgtdb',
+                        help='.csv file of the whole MGT typing dataset in MGTdb of Salmonella Enteritidis')
+    parser.add_argument('-c','--cluster_type',help='.txt file of GC types, e.g. GC10_1813')
     parser.add_argument('-o','--outpath_prefix',help='output path + prefix of the outfile, e.g. /srv/outdir/test_')
     args = parser.parse_args()
     return args
 
 # ### Historical input for parseargs
-# python3 MGTSEnT_Microreactinput.py -t /mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/GCtypes.txt -o /mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/2_Austest/Australia_
+# python MGTSEnT_Microreactinput.py -c /mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/GCtypes.txt -o /mnt/e/2018/2019-06-14-Australia_SEN/4_MGTSEnter/2_Austest/Australia_
 # isolatelist = '/mnt/e/2018/2019-06-14-Australia_SEN/new_isolates.txt'
 # outpath = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-17-transmission/4_week_ODC5/6_ODC0_10'
 # isolatelist = '/mnt/e/2018/2019-06-14-Australia_SEN/new_isolates.txt'  ## Australia_isolates
@@ -36,15 +38,16 @@ def parseargs():
 ### inputs
 # mgt_epi='/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-17-transmission/05-05-pairwise_transmission/mgt_epi_06_17_replace5.csv'
 args = parseargs()
-gctypelist = open(args.GCtype,'r').read().splitlines()
+gctypelist = open(args.cluster_type,'r').read().splitlines()
 outpath = args.outpath_prefix
-metapath = '/mnt/e/2018/2019-06-14-Australia_SEN/0_meta/MGTdataset_corre.csv'
+metapath = args.mgtdb
+#metapath = '/mnt/e/2018/2019-06-14-Australia_SEN/0_meta/MGTdataset_corre.csv'
 ### ocd recall from GC0 to GC10, if add an extra column of ODC0.0, MGT9 can be separated in the dendrogram
-odcrecallpath = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-17-transmission/05-05-pairwise_transmission/06-21_pwd_ODC10'
+#odcrecallpath = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-17-transmission/05-05-pairwise_transmission/06-21_pwd_ODC10'
+odcrecallpath = "/srv/scratch/z5167454/MGTSEnT/updating_input"
 # outpath = odcrecallpath + '/recall_analy/mciroreact'
 # outpath = '/mnt/e/2018/2019-06-14-Australia_SEN/2020-03-17-transmission/05-05-pairwise_transmission/2_ODC10_1813'
-# gclevel = 'ODC10'
-# gctypelist = ['1813'] # '36','89','95','1893','1889'
+# gctypelist = ['ODC10_1813',"ODC10_36"] # '36','89','95','1893','1889'
 core_country = 'Australia'
 longitude = []
 latitude = []
