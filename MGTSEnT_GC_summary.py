@@ -65,7 +65,7 @@ def main():
         odc_size2, typeofinterest_isodic = typeofinterest(metadf, mgt_level, isolatelist, number_iso_threshold)
         types = odc_size2
         print(
-            'There are ' + str(len(odc_size2)) + ' ' + mgt_level + ' types >= 2 isolates each in the selected genomes')
+            'There are ' + str(len(odc_size2)) + ' ' + mgt_level + " types >= " + str(number_iso_threshold) + " isolates each in the selected genomes")
         ### if types were offerred without screening
         # types = open(typelistpath,'r').read().splitlines()
         # types = ['20241']
