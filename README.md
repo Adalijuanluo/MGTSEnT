@@ -25,7 +25,7 @@ Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
    
 ### Output
 1. CSV file about the population structure (clades & lineages) of the strains, and multidrug resistance associated sequence types (STs). 
-2. CSV file of closely related clusters at different resolution levels (using different pair-wise allele difference cutoffs, 0, 1, 2, 5 and 10), distribution of country and year, classification of 4-week sliding window (if include >= 2 isolates collected within 4 weeks), National/International, Within-State/Inter-State. 
+2. CSV files of closely related clusters at different resolution levels of clustering (using different pair-wise allele difference cutoffs, 0, 1, 2, 5 and 10). The following information are provided: distribution of country and year, classification of 4-week sliding window (if include >= 2 isolates collected within 4 weeks), National/International, Within-State/Inter-State. 
 3. Microreact input files for investigating a cluster of interest. 
     * Metadata (.txt) file including geographic and collection time information, and MGT9-based genomic clusters at different clustering threshold from 0 to 10 using the single linkage clustering algorithm. 
     * Dendrogram (.txt) for the hierarchical single linkage clusters. 
