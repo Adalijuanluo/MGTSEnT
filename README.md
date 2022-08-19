@@ -53,12 +53,12 @@ cd MGTSEnT
 * Output 1
 ````
 python MGTSEnT.py -h
-python MGTSEnT.py -m path/mgtdb.csv -i path/accession_number_list.txt -f flag.csv -o outputpath/prefix_
+python MGTSEnT.py -m path/mgtdb.csv -i path/accession_number_list.txt -f updating_input/latest_flag.csv -o outputpath/prefix_
 ````
 * Output 2
 ````
 python MGTSEnT_GC_summary.py -h
-python MGTSEnT_GC_summary.py -m path/mgtdb.csv -i path/accession_number_list.txt -f flag.csv -o outputpath/prefix_
+python MGTSEnT_GC_summary.py -m path/mgtdb.csv -i path/accession_number_list.txt -f updating_input/latest_flag.csv -o outputpath/prefix_
 ````
 * Output 3
 ````
