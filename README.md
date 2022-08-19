@@ -14,10 +14,15 @@ Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
 1. The whole MGT typing dataset (.csv) from the MGTdb https://mgtdb.unsw.edu.au/enteritidis/. 
 2. Accession number list (.txt) for the newly sequenced strains or strains of interest.
 
-   #### Note: The following files are for MGTSEnT_Microreactinput.py
+   #### The following files are required for MGTSEnT_Microreactinput.py
 
-3. List of closely related clusters (.txt) for microreact visualisation (e.g. GC10_1813). 
-4. Allele profile downloaded from https://mgtdb.unsw.edu.au/enteritidis/.
+   * List of closely related clusters (.txt) for microreact visualisation (e.g. GC10_1813). 
+   * Allele profile downloaded from https://mgtdb.unsw.edu.au/enteritidis/.
+   
+   #### Input file provided by Github repository in the updating_input directory
+   * Flag file (.csv) that includes the population structure and multidrug resistance associated MGT types. This file will be regularly updated. Please use the latest version. 
+   * Input 1 of the whole MGT typing dataset from the MGTdb is also provided, however, this file may not include the newly sequenced or private genomes. 
+   
 ### Output
 1. CSV file about the population structure (clades & lineages) of the strains, and multidrug resistance associated sequence types (STs). 
 2. CSV file of closely related clusters at different resolution levels (using different pair-wise allele difference cutoffs, 0, 1, 2, 5 and 10), distribution of country and year, classification of 4-week sliding window (if include >= 2 isolates collected within 4 weeks), National/International, Within-State/Inter-State. 
