@@ -40,9 +40,10 @@ Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
    - Add bioconda -> http://www.ddocent.com//bioconda/
 2. Create miniconda3 environment:
 ````
-conda create -n mgtsent
+conda create -n mgtsent 
 conda activate mgtsent
-pip install geopy
+conda install python=3.8
+pip install pandas numpy scipy sklearn geopy matplotlib
 ````
 3. Download this repository:
 ````
