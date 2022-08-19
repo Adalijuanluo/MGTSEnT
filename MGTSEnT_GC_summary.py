@@ -1,5 +1,6 @@
 import glob
 import pandas as pd
+pd.options.mode.chained_assignment = None  # default='warn'
 import scipy.stats as stats
 import operator
 import numpy as np
@@ -50,7 +51,7 @@ def main():
 
     mgtlevelist = ['MGT9','ODC1','ODC2','ODC5','ODC10']  # ['MGT2','MGT3','MGT4','MGT5','MGT6','MGT7','MGT8','MGT9'] ### ['MGT1'] #'ODC2', 'ODC5',
     for mgt_level in mgtlevelist:
-        print("*********" + mgt_level + "********")
+        print("********* " + mgt_level + " ********")
         number_iso_threshold = 1
         # mgt_level = 'MGT2'
         datethresh = 28
@@ -196,9 +197,11 @@ def flag_reprot(flag_input, subdf,key_list):
     #### to combine MGT level with ST/CCs into MGT1_ST3302
     for level in mgt_levels_list:
         if 'CC' not in level:
-            subdf.loc[:,level] = level + '_ST' + subdf[level].astype(str)
+            subdf[level] = level + '_ST' + subdf[level].astype(str)
+            #subdf.loc[:,level] = level + '_ST' + subdf[level].astype(str)
         if 'CC' in level:
-            subdf.loc[:,level] = level + subdf[level].astype(str)
+            subdf[level] = level + subdf[level].astype(str)
+            #subdf.loc[:,level] = level + subdf[level].astype(str)
     subdflist = subdf.values.tolist()
     keyflag_dic = {}
     for k1 in dic_file:
