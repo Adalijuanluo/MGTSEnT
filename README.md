@@ -64,7 +64,7 @@ python MGTSEnT_GC_summary.py -m path/mgtdb.csv -i path/accession_number_list.txt
 * Output 3
 ````
 python MGTSEnT_Microreactinput.py -h
-python MGTSEnT_Microreactinput.py -m path/mgtdb.csv -c path/list_of_clusters.txt -outputpath/prefix_
+python MGTSEnT_Microreactinput.py -m path/mgtdb.csv -c path/list_of_clusters.txt -o outputpath/prefix_
 ````
 
 
