@@ -10,9 +10,8 @@ The key information includes:
 ## Author
 Ada Lijuan Luo, Ruiting Lan Laboratory, University of New South Wales
 ## Input and Output
-### Input
-
-1. The whole MGT typing dataset (.csv) from the MGTdb https://mgtdb.unsw.edu.au/enteritidis/.
+### Input 
+1. The whole MGT typing dataset (.csv) from the MGTdb https://mgtdb.unsw.edu.au/enteritidis/. 
 2. Accession number list (.txt) for the newly sequenced strains or strains of interest.
 
    #### Note: The following files are for MGTSEnT_Microreactinput.py
